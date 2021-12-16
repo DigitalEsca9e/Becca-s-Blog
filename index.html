@@ -80,6 +80,12 @@
             }*/
 
             function showPage(pageId){
+                var sound=document.getElementsByTagName("audio");
+                if(sound.length>0){
+                    for (var i=0;i<sound.length; i++){
+                        sound[i].pause();
+                    }
+                }
                 var a=document.getElementsByClassName("page");
                 if(a.length>0){
                     for(var i=0; i<a.length;i++){
