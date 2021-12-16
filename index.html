@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Sakadia
+        </title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+        <link href="https://fonts.googleapis.com/css2?family=Megrim&family=Poppins:wght@200&display=swap" rel="stylesheet">
+        <script>
+            /*function addPage(){
+                var a=document.createElement("div");
+                var n=document.getElementsByClassName("page").length+1;
+                var b=document.getElementById("web_pages");
+                var local=document.getElementById("page_cycle");
+                var pg_btn=document.createElement("button");
+                a.id="page_"+n;
+                a.className="page";
+                b.appendChild(a);
+                //showPage(a.id);
+                definePage(a.id);
+                pg_btn.className="pageBtn";
+                pg_btn.id="btn_"+n;
+                pg_btn.textContent="THis is page" +n;
+                pg_btn.onclick=function(){showPage(a.id)};
+
+                
+                pg_btn.textContent=n;
+                local.appendChild(pg_btn);
+            }
+            function definePage(divNode){
+                var page=document.getElementById(divNode);
+                var soundButton=document.createElement("button");
+                var imageButton=document.createElement("button");
+                var textAreaButton=document.createElement("button");
+                var HeadingButton=document.createElement("button");
+                var backgroundImageButton=document.createElement("button");
+                soundButton.className="addElementButton";
+                imageButton.className="addElementButton";
+                textAreaButton.className="addElementButton";
+                HeadingButton.className="addElementButton";
+                backgroundImageButton.className="addElementButton";
+                soundButton.textContent="Add sound";
+                imageButton.textContent="Add Image";
+                textAreaButton.textContent="Add text";
+                HeadingButton.textContent="Add a heading";
+                backgroundImageButton.textContent="Change background image";
+                backgroundImageButton.onclick=function(){cbgImage(divNode)};
+                page.appendChild(soundButton);
+                page.appendChild(imageButton);
+                page.appendChild(textAreaButton);
+                page.appendChild(HeadingButton);
+                page.appendChild(backgroundImageButton);
+            }
+
+            function cbgImage(divNode){
+                var page=document.getElementById(divNode);
+                var cycle=page.getElementsByClassName("addElementButton");
+                console.log(cycle.length);
+                for(var i=0; i<cycle.length;i++){
+                    cycle[i].hidden=true;
+                }
+                var inp=document.createElement("input");
+                inp.id="file_selector";
+                inp.type="file";
+                inp.title="BG IMAGE";
+                inp.onchange=function(event){
+                    var urli=URL.createObjectURL(event.target.files[0]);
+                    page.style.background="url("+urli+")";
+                    page.style.backgroundRepeat="no-repeat";
+                    page.style.backgroundSize="cover";
+                    for(var i=0; i<cycle.length;i++){
+                        cycle[i].hidden=false;
+                    }
+                    document.getElementById("file_selector").remove();
+                    document.getElementById("file_submitter").remove();
+                };
+                page.appendChild(inp);
+
+            }*/
+
+            function showPage(pageId){
+                var a=document.getElementsByClassName("page");
+                if(a.length>0){
+                    for(var i=0; i<a.length;i++){
+                        a[i].hidden=true;
+                    }
+                    document.getElementById(pageId).hidden=false;
+                }
+                else{
+                    return;
+                }
+            }
+            /*function numbering(){
+                var n_pages= document.getElementsByClassName("pageBtn").length;
+                console.log(n_pages);
+                var pages=document.getElementsByClassName("pagBtn");
+                var local=document.getElementById("page_cycle");
+                for(var i=0; i<n_pages; i++){
+                    var j=i+1;
+                    var pg_asn="page_"+j;
+                    pages[i].addEventListener("click", function() {
+                    showPage(pg_asn);
+                    });
+                }
+            }*/
+        </script>
+        <style>
+            body{
+                margin:auto;
+                background-color: rgb(0, 0, 0);
+            }
+            #perma_banner{
+                background-color: black;
+                color: white;
+                font-family: 'Megrim', cursive;
+                overflow: auto;
+                width: 100vw;
+                
+            }
+            #perma_banner h1{
+                margin-left: 2%;
+                letter-spacing: 10px;
+                position: relative;
+                top: 10%;
+            }
+            .addElementButton{
+                text-align: center;
+            }
+            .page{
+                font-family:  'Poppins', sans-serif;
+            }
+            .page_content{
+                overflow: auto;
+                width: 100vw;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .img_holder{
+                height: auto;
+                width: 100vw;
+            }
+            #sakadia_map{
+                width: 100%;
+                height: auto;
+            }
+            #chitora_post{
+                width: 100%;
+                height: auto;
+            }
+            #firebright_img{
+                width: 100%;
+                height: auto;
+            }
+            #sunlkenlands_post{
+                width: 100%;
+                height: auto;
+            }
+            .text_holder{
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                color: white;
+                width:100vw;
+                background: linear-gradient(black,rgb(73, 73, 73));
+            }
+            .heading{
+                margin-left: 4rem;
+                margin-right: 4rem;
+            }
+            .paragraphs{
+                margin-left: 4rem;
+                margin-right: 4rem;
+            }
+            #page_cycle{
+                width: 100vw;
+                height: 2rem;
+                display: flex;
+                flex-direction: row;
+                background-color: black;
+                margin-bottom: 0px;
+                align-items: center;
+                justify-content: center;
+            }
+            .page_btn{
+                background-color: transparent;
+                color: white;
+                border: none;
+                font-size: 16px;
+            }
+            .page_btn:hover{
+                border-radius:  5px;
+                border-color: transparent;
+                background-color: white;
+                color: black;
+            }
+            
+        </style>
+    </head>
+    <body onload="showPage('page_1')">
+        <div id="main">
+            <!--<div id="options">
+                <button id="add" type="button" onclick="addPage()">Add Page</button>
+                <button id="delete" type="button">Delete</button>
+            </div>-->
+            <div id="perma_banner">
+                <h1>S  A  K  A  D  I  A</h1>
+            </div>
+            <div id="web_pages">
+                <div class="page" id="page_1">
+                    <div class="page_content"> 
+                        <div class="img_holder">
+                            <img id="sakadia_map" class="img_elements" src="./Assets/SakadiaMap.png"/>
+                        </div>
+                        <div class="text_holder">
+                            <div class="audio_file">
+                                <audio controls>
+                                    <source src="Assets/BeccaBlight_IntroPost.mp3" type="audio/mp3">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <h1 class="heading">Intro (Transcript)</h1>
+                            <div class="paragraphs">
+                                <p>Hello! The name is Becca Blight and I’m here with the first blog entry of my journey. This is my first time making a blog and since it is one of research and discovery it is open for everyone to enjoy and learn from. I’m in my third year of veterinary school and am one of the lucky three students picked to go on a self-set journey pertaining to my studies in veterinary practices. On this journey, my goal is to gain a better understanding of Chi practices and how they can assist veterinarians in their work, the harmony between the natural world and humans in Chitora city, and the practice of harnessing lava, which is used to make many veterinary tools.</p>
+                                <p>As you know, after the discovery of Living Chi, eight different types of abilities using Chi were discovered. Out of those eight categories, five of them are useful in both human and animal medical practices. The Ear type can enhance the practitioner's hearing. The Eye type enhances the portioner's eyesight. And the Awareness type allows the practitioners to sense the Chi within another living being. These three types all assist with spotting abnormalities within an animal’s body. The last two are the Mental type and the Tongue type. The mental type enhances the practitioner’s memory and intelligence, while the Tongue type allows the practitioners to understand animals. It is clear why these two are helpful in the medical field. Not all people are able to learn a type, and all people can only learn one type. While on this journey I will also be studying these five types and deciding on which one I would like to learn to aid me as a veterinarian.</p>
+                                <p>This journey will be a duration of 1 month, and I will spend a week at each of my destinations (the rest of the time will be allotted to travel). I will be doing the whole journey on my hover bike (and the use of a boat to get to the island). My first destination will be Dragon Tooth Island. It is one of Sakadia’s largest islands and houses many ancient artifacts that helped in the discovery of Chi. It is here I will study Chi’s origins and the Chi practices that assist veterinarians in their work. Then I will make my way to Chitora, the capital of Sakadia, where technology and nature have become one. It is here that I will study the harmony between humans and animals and how this has affected our world. I will also be visiting the biggest veterinary clinic, which is found at the heart of Chitora. And finally, I will travel to Fire Bright Lofts, the town of craftsmen and metal workers located on the side of Mt. Odium. It is here that I will learn how these professionals harness the power of lava to make veterinary tools that would otherwise be impossible to make. As I travel, I will record my findings in this blog I have set up. I will post every two days and on the final day at each of my destinations. And that about wraps it up! I hope you all learn something from my journey</p>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+                <div class="page" id="page_2">
+                    <div class="page_content"> 
+                        <div class="img_holder">
+                            <img id="sunlkenlands_post" class="img_elements" src="./Assets/Dragon_Tooth_Island_image.png"/>
+                        </div>
+                        <div class="text_holder">
+                            <div class="audio_file">
+                                <audio controls>
+                                    <source src="Assets/Dragon_Tooth_Island_Post.mp3" type="audio/mp3">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <h1 class="heading">Dragon Tooth Island (Transcript)</h1>
+                            <div class="paragraphs">
+                                <p>Hey it’s Becca! I’m here with a report on my experiences on Dragon Tooth Island. As you saw from my other posts during the week, I have been staying with the village elder’s family for my stay. Despite the island being so big, the population is only about 3000 people. The elder is like the mayor here and knows every person by name – which I think is helped by him having the mental type Chi ability. The family and island dwellers were all very welcoming, and I had a wonderful time here on the island.</p>
+                                <p>I spent most of my time with the village elder’s oldest daughter Tamika Agave. Ms. Tamika is a historical archeologist and oversees studying and caring for the Dragon Tooth Island temple. Found about two centuries ago, the temple was the pivotal piece that helped scientist come to discovery and understand Chi. It was discovered that the temple was made of special stone that absorbs and preserves Chi, which scientists have used to make containers of Chi to be used in technology and many machines. Because of its pivotal role, the temple has become a preserved piece of history. The temple is so important that even getting a tour is nearly impossible. Luckily since I came to study the temple for research purposes I was allowed in under Tamika’s supervision.</p>
+                                <p>The temple was amazing! It was perfectly preserved due to Tamika and her team’s dedication and the wonder of the Chi stones. My favorite part was the stone tablet I shared with you guys earlier this week. The tablet was what described the 8 abilities of Chi, and what helped people learn how to use them. Every person on Dragon Tooth Island can use one of these 8 types and Mr. Tamar, Tamika’s younger brother and a master at teaching the 8 Chi types, helped me pick and learn one of the 8 types. Out of the 5 that can help medical practitioners – Ear, Eye, Awareness, Mental, and Tongue – I choose to learn the Tongue type. And while I may grow to regret such a hasty decision, I’m more excited with the idea of understanding Dragons! Dragons really are the best and I cannot wait to understand them.</p>
+                                <p>Learning a Chi ability takes dedication and hard work. While all types require the practitioner to meditate, they each have their own ways of being learned. For the Tongue type, I had to practice with my voice and my mind. It was a lot of vocal exercises, including matching my pitch to the pitch of wild birds to try and create a connection. I only managed to hear an animal’s thoughts once so far, which was a general feeling of contentment form one of the birds I practiced with, but at least its progress! Apparently for only having a week of practice being able to perceive an animal’s emotions is impressive. If I keep up my training and exercises that Mr. Tamar had taught me, I should be able to start hearing one-word thoughts within 2 months. Which means by the time I graduate I should be able to understand about a small sentence’s worth of thoughts from an animal. It’s just so exciting!</p>
+                                <p>I loved my experiences on Dragon Tooth Island and am sad to leave the Island, but the journey must continue. This week’s destination is Chitora city, the capital! It is here I will be staying at the Central animal hospital and sanctuary, the biggest animal hospital in all Sakadia. I’ve never been to the capital, let alone a big city, so I am excited to see the technological advancements the city has to offer. Thought I am a bit more excited to see the herbal dragon sanctuary that the hospital has. Herbal dragons are the cutest and friendliest of the dragon species and I cannot wait to see them! Until then, please enjoy reading this research paper Ms. Tamika shared with me. It is based on her findings regarding the temple and the 8 Chi abilities. I found the read quite fascinating and enlightening and thought I should share it on my blog. See you next time!</p>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+                <div class="page" id="page_3">
+                    <div class="page_content"> 
+                        <div class="img_holder">
+                            <img id="sunlkenlands_post" class="img_elements" src="./Assets/sunkenlands_image.png"/>
+                        </div>
+                        <div class="text_holder">
+                            <div class="audio_file">
+                                <audio controls>
+                                    <source src="Assets/Sunken_Lands_surprise_post.mp3" type="audio/mp3">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <h1 class="heading">Sunken Lands (Transcript)</h1>
+                            <div class="paragraphs">
+                                <p>Hey guys! It’s Becca here with a surprise update. Traveling from Dragon Tooth Island to Chitora City got delayed as the boat back to the mainland had mechanical issues. Luckily, a new hover train station had open on the island 2 months prior, so I was able to hitch a ride on the Druid, the Sunken Lands super-fast hover train.</p>
+                                <p>The Sunken Lands used to be part of the mainland, but sunk 20 meters below sea level a few decades ago. But thanks to scientists and Chi, the Sunken Lands have been restored to there former glory. It is now the most technologically advanced city of Sakadia. Unfortunately, since it wasn’t on my itinerary, I will only be able to travel quickly through the Sunken Lands. To be honest, the Sunken Lands is more of a vacation spot in my opinion, so maybe I’ll visit after I graduate.</p>
+                                <p>They do have an amazing marine wildlife center which I would like to check out. It wasn’t part of this trip because I’m more interested in dragons than marine animals, but all animals are precious to me. Anyway, I’ll post some pictures or sketches of what I see while I pass through. See you all in a bit!</p>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+                <div class="page" id="page_4">
+                    <div class="page_content"> 
+                        <div class="img_holder">
+                            <img id="chitora_post" class="img_elements" src="./Assets/Chitora_city_img.png"/>
+                        </div>
+                        <div class="text_holder">
+                            <div class="audio_file">
+                                <audio controls>
+                                    <source src="Assets/Chitora_City_Post.mp3" type="audio/mp3">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <h1 class="heading">Chitora City (Transcript)</h1>
+                            <div class="paragraphs">
+                                <p>Becca here, with an update on my journey. I just finished my week in Chitora City, Sakadia’s capital, and I have a lot to share. As I mentioned in my previous post, while in Chitora City, I spent most of my time at the Central animal hospital and sanctuary under the tutelage of their herbal dragon expert Dr. Maron Charmaine. She and her support dragon Vert, a green tea leaves herbal dragon, taught me about the different types of herbal dragons and their benefits as support animals.</p>
+                                <p>Herbal dragons ae the size of a common house cat or a small dog and are very friendly. They are intelligent as well, which helps them tell when humans are feeling distressed. Herbal dragons fall into 5 categories: medicinal, mental healers, body strengtheners, energizers, and helpers. The medicinal class all grow plants that can heal physical ailments such as colds, fevers, or rashes. The mental healer class can grow plants that can help calm and relax people because of the plants soothing properties. The body strengthens class can grow plants that help strength the humans’ bodies health, such as bone strength or strengthening a person’s immune system. Energizers can help increase a person’s energy level and even help them recharge their Chi battery faster. And lastly there is the helpers class, which can help more in the environment and outside forces, such as purifying the air.</p>
+                                <p>Each class has many different herbs under them and there is basically an herbal dragon for everyone. For example: Lavender herbal dragons are from the mental class and are typically used to help those with insomnia or to help calm children in hospitals, while sunflower herbal dragons are from the helper class and can purify the air around them form any abnormalities, which makes them perfect to stop the lava craftsmen from breathing in too much harmful smoke. And because of their intelligence and friendliness, they are easy to train to be helpful companions. Most veterinarians get an herbal dragon to help them with their work, and I totally want one for myself!</p>
+                                <p>Am and proud to announce I got my wish granted. Dr. Charmaine allowed me to pick one of the trained herbal dragons from the sanctuary after all my help this week. I chose a Chamomile herbal dragon, which is from the mental healers class. I have always had trouble with Insomnia and wanted a partner who could help keep my patients calm and relaxed while I
+                                helped them, so Millie was the obvious choice! Oh, that’s her name by the way, Millie! Isn’t it just the cutest!</p>
+                                <p>Besides my work in the animal sanctuary with Dr. Charmaine, I did take some time to explore Chitora City. It is truly amazing how nature and technology have truly become one in our world’s capital. Now that basically all energy is green and pollution is almost nonexistent, the flora of our world has flourished. A lot of the buildings in the city are either built around or as part of the natural vegetation of the land. The Central animal hospital and sanctuary is covered in vines and plants that just make the hospital even more special than it already is. While the city is amazing and full of technological marvels like the hover train, it’s just not my scene. Too much hustle and bustle. I think I enjoy the quite countryside where I grew up. Anyways, it’s about time I moved on to my last destination, Fire Bright Lofts, home of the Lava craftsmen. Millie says see you guys next week! Bye!</p>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+                <div class="page" id="page_5">
+                    <div class="page_content"> 
+                        <div class="img_holder">
+                            <img id="firebright_img" class="img_elements" src="./Assets/FireBrightLoft_img.png"/>
+                        </div>
+                        <div class="text_holder">
+                            <div class="audio_file">
+                                <audio controls>
+                                    <source src="Assets/Fire_Bright_Lofts_Post.mp3" type="audio/mp3">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <h1 class="heading">Fire Bright Lofts (Transcript)</h1>
+                            <div class="paragraphs">
+                                <p>Man, what a week! Fire Bright Lofts was crazy! Not only is it located on the side of Mt.Odium, Sakadia’s largest and only active volcano, it’s also built on just stilts! Mind you they are metal and completely sturdy stilts, but stilts, nonetheless. Word of the wise, this is not a vacationing spot for those with a fear of heights. Nothing but the gondolas up are located on ground level.</p>
+                                <p>The people here are very friendly and very outgoing. Everyone knows everyone and they all take great pride in their craftsmanship. If you’re looking for the finest wares than this is the town to come to. I spent most of my time at Bright Burn Workshop, run by Emil Borgeaud. Emil is the best dragon tool smith in the whole town…which is why I chose his workshop as my host. By now you should all know how much I love dragons, so this was kind of a no brainer.</p>
+                                <p>Emil is very passionate about his work and walked me through how to make a scale clipper, you know, that tool I posted earlier this week. I did not make it myself, but I did help. Like basically everyone in Fire Bright Lofts, Emil learned and mastered the body type Chi ability, which allows him to enhance his bodies durability, making it safe for him to handle lava. He owns a small workshop with just him, his two apprentices, Estelle and Bruno, and Sunny his Sunflower herbal dragon. Since Sunflower herbal dragons are part of the helper class and can purify air, they are the most common herbal dragon type in Fire Bright Lofts.</p>
+                                <p>Because of their pride in their craftsmanship, there are many building/crafting competitions held here, at least one a week. This week there was a competition based on building the sturdiest yet comfiest ottoman. The winner was an old man named Zacarias who used phoenix down feathers for the cushion and fire rubies for the studiedness and aesthetic. It was very fiery and soooo comfy. I was able to place an order for a couch made in a similar design. Now I will have the best nap couch in the world! Millie liked it so much that I also ordered a bed for her as well.</p>
+                                <p>Unfortunately, this is the end of my journey now, and Millie and I will be heading back to the academy. I’ll be posting one more time once I return with a wrap up on my educational journey.</p>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+                <div class="page" id="page_6">
+                    <div class="page_content"> 
+                        <div class="img_holder">
+                            <img id="sakadia_map" class="img_elements" src="./Assets/SakadiMapV2.png"/>
+                        </div>
+                        <div class="text_holder">
+                            <div class="audio_file">
+                                <audio controls>
+                                    <source src="Assets/Outro_Post.mp3" type="audio/mp3">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <h1 class="heading">Outro (Transcript)</h1>
+                            <div class="paragraphs">
+                                <p>Hey guys, Becca here with one final post! Now that I’m back at North Sakadia Veterinary academy I’m going headfirst into my studies. After my journey, I now know exactly what my plan is after I graduate. As you might have noticed, I have a huge love for dragons, which is why I am going to be starting my own practice that focuses on…dragons! With Millie at my side, I will be able to care for baby dragons or dragons in distress. Along with my practice, I will also own a small nursery to raise baby dragons that may have been abandoned because of various circumstances.</p>
+                                <p>It probably won’t be the biggest or have the best equipment, but it will allow me to help many dragons in need. Emil even said he would make the tools needed for my clinic! I still have one year left of veterinary school, but before I know it, I’ll be running my own clinic. Thank you all for being a part of my journey. I had a wonderful time and learned so many things. I hope you all enjoyed it just as much as I did. This is Becca Blight, signing off for the last time!</p>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+                <div class="page" id="page_7">
+                    <div>
+                        Third page
+                    </div>
+                </div>
+                <div class="page" id="page_8">
+                    <div>
+                        Third page
+                    </div>
+                </div>
+                <div id="page_cycle">
+                    <button class="page_btn" type="button" onclick="showPage('page_1')">1</button>
+                    <button class="page_btn" type="button" onclick="showPage('page_2')">2</button>
+                    <button class="page_btn" type="button" onclick="showPage('page_3')">3</button>
+                    <button class="page_btn" type="button" onclick="showPage('page_4')">4</button>
+                    <button class="page_btn" type="button" onclick="showPage('page_5')">5</button>
+                    <button class="page_btn" type="button" onclick="showPage('page_6')">6</button>
+                    <!--<button class="page_btn" type="button" onclick="showPage('page_7')">7</button>
+                    <button class="page_btn" type="button" onclick="showPage('page_8')">8</button>-->
+                </div>
+            </div>
+            
+        </div>
+    </body>
+</html>
